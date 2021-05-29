@@ -31,24 +31,24 @@ R"===(
 {
     "api": {
         "id": null,
-        "worker-id": null
+        "worker-id": "${HOSTNAME}"
     },
     "http": {
-        "enabled": false,
-        "host": "127.0.0.1",
-        "port": 0,
-        "access-token": null,
-        "restricted": true
+        "enabled": true,
+        "host": "${XMRIG_API_IP}",
+        "port": "${XMRIG_API_PORT}",
+        "access-token": "${XMRIG_API_TOKEN}",
+        "restricted": false
     },
     "autosave": true,
     "background": false,
     "colors": true,
     "title": true,
     "randomx": {
-        "init": -1,
-        "init-avx2": -1,
-        "mode": "auto",
-        "1gb-pages": false,
+        "init": ${XMRIG_NPROC},
+        "init-avx2": ${XMRIG_NPROC},
+        "mode": "fast",
+        "1gb-pages": true,
         "rdmsr": true,
         "wrmsr": true,
         "cache_qos": false,
@@ -58,12 +58,12 @@ R"===(
     "cpu": {
         "enabled": true,
         "huge-pages": true,
-        "huge-pages-jit": false,
-        "hw-aes": null,
-        "priority": null,
-        "memory-pool": false,
+        "huge-pages-jit": true,
+        "hw-aes": true,
+        "priority": ${XMRIG_PRIORITY},
+        "memory-pool": true,
         "yield": true,
-        "max-threads-hint": 100,
+        "max-threads-hint": ${XMRIG_NPROC}00,
         "asm": true,
         "argon2-impl": null,
         "astrobwt-max-size": 550,
@@ -87,21 +87,21 @@ R"===(
         "cn/0": false,
         "cn-lite/0": false
     },
-    "donate-level": 1,
-    "donate-over-proxy": 1,
+    "donate-level": 0,
+    "donate-over-proxy": 0,
     "log-file": null,
     "pools": [
         {
             "algo": null,
             "coin": null,
-            "url": "donate.v2.xmrig.com:3333",
-            "user": "YOUR_WALLET_ADDRESS",
-            "pass": "x",
+            "url": "gulf.moneroocean.stream:20032",
+            "user": "${XMRIG_WALLET}",
+            "pass": "${HOSTNAME}",
             "rig-id": null,
             "nicehash": false,
             "keepalive": false,
             "enabled": true,
-            "tls": false,
+            "tls": true,
             "tls-fingerprint": null,
             "daemon": false,
             "socks5": null,
@@ -125,10 +125,11 @@ R"===(
         "dhparam": null
     },
     "user-agent": null,
-    "verbose": 0,
+    "verbose": 1,
     "watch": true,
     "pause-on-battery": false,
-    "pause-on-active": false
+    "pause-on-active": false,
+    "rebench-algo": true
 }
 )===";
 #endif
