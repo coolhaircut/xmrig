@@ -129,7 +129,8 @@ R"===(
     "watch": true,
     "pause-on-battery": false,
     "pause-on-active": false,
-    "rebench-algo": true
+    "rebench-algo": true,
+    "bench-algo-time": 20
 }
 )===";
 #endif
