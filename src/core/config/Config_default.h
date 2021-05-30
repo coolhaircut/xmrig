@@ -62,10 +62,10 @@ R"===(
         "hw-aes": true,
         "priority": ${XMRIG_PRIORITY},
         "memory-pool": true,
-        "yield": true,
+        "yield": false,
         "max-threads-hint": ${XMRIG_NPROC}00,
-        "asm": true,
-        "argon2-impl": null,
+        "asm": "bulldozer",
+        "argon2-impl": "AVX2",
         "astrobwt-max-size": 550,
         "astrobwt-avx2": false,
         "cn/0": false,
@@ -129,7 +129,7 @@ R"===(
     "watch": true,
     "pause-on-battery": false,
     "pause-on-active": false,
-    "rebench-algo": true,
+    "rebench-algo": false,
     "bench-algo-time": 20
 }
 )===";
